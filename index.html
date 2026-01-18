@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beni Seviyor Musun?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #121212;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
+            margin-bottom: 40px;
+        
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: bold;
+            position: relative;
+            transition: transform 0.2s ease-in-out, left 0.3s ease-in-out, top 0.3s ease-in-out;
+        }
+
+        #yes {
+            background-color: #00ff00;
+            color: black;
+            box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.6);
+            left: -150px;
+        }
+
+        #yes:hover {
+            background-color: #00cc00;
+        }
+
+        #no {
+            background-color: #ff0000;
+            color: white;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.6);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Beni Seviyor Musun?</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="goToNextPage()">Evet</button>
+        <button id="no" onmouseover="moveButton()">Hayır</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            let button = document.getElementById("no");
+
+            let maxX = window.innerWidth - button.offsetWidth - 50; // Sağ ve sol kenarlardan taşmayı engelle
+            let maxY = window.innerHeight - button.offsetHeight - 50; // Üst ve alt kenarlardan taşmayı engelle
+
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+
+            // Butonun sınırlar içinde kalmasını sağla
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function goToNextPage() {
+            window.location.href = "yes.html";
+        }
+    </script>
+
+</body>
+</html>
